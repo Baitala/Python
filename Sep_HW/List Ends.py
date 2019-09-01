@@ -18,3 +18,5 @@ def list_ends (input_list):
     n_list.append(input_list[0])
     n_list.append(input_list[l])
     print (n_list)
+
+   
