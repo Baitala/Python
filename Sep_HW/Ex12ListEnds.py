@@ -9,14 +9,13 @@ Concepts to practice
     List comprehensions (maybe)
     Functions
 """
-input_list = [5,10,15,20,25]
 
 
-def list_ends (input_list):
-    l = len(input_list)
+
+def list_ends(in_list):
+    l = len(in_list)-1
     n_list = []
-    n_list.append(input_list[0])
-    n_list.append(input_list[l])
-    print (n_list)
+    n_list.append(in_list[0])
+    n_list.append(in_list[l])
+    return (n_list)
 
-   
