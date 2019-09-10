@@ -6,14 +6,19 @@ numbers where the next number in the sequence is the sum of the previous two num
 The sequence looks like this: 1, 1, 2, 3, 5, 8, 13, …)
 """
 
-def FibonnaciGenerator (quantity):
+def FibonnaciGenerator(quantity):
     flist = [1,1]
-    for quantity in flist:
+    i = 1
+    while i < int(quantity):
         l = len(flist)
-        flist.append(flist[l]+flist[l-1])
+        flist.append(flist[l-2]+flist[l-1])
+        i += 1
     return(flist)
+    
 
 
 
 if __name__ == "__main__":
     print("Pass1" if FibonnaciGenerator(3)==[1,1,2] else "Error1")
+    
+    print(FibonnaciGenerator(9999)) #kind of perfomance test
