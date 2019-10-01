@@ -1,12 +1,8 @@
 from Ex13Fibonacci import *
 
-howMany = input("How many numbers do you want me to generate? ")
-
-if int(howMany) >= 0:
-    print(FibonnaciGenerator(howMany))
-else: 
-    print("Numbers quantity can't be negative")
-    quit()
+howMany = int(input("How many numbers do you want me to generate? "))
+print(FibonnaciGenerator(howMany))
+quit()
 
 """
 ToDo
