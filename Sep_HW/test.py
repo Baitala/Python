@@ -1,12 +1,9 @@
+from datetime import datetime
 
+def CharInput(inname,inage):
+    CurrentYear = datetime.now()
+    HundredYear = str(CurrentYear.year - inage + 100)
+    
+    return str(inname + " you'll be a hundred years old in " + HundredYear)
 
-
-#def FibonnaciGenerator (quantity):
-flist = [1,1]
-    #for quantity in flist:
-l = len(flist)
-print(l)
-flist.append(flist[l-2]+flist[l-1])
-print(flist)
-    #return(flist)
-
+print(CharInput("Petro",31))
