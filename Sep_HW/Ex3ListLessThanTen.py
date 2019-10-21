@@ -23,11 +23,13 @@ def ListLessThanTen(inlist,innumber):
     for i in inlist:
         if i < innumber:
             n_list.append(i)
-        else:
+        elif i >= innumber:
             break
+        else:
+            raise ValueError
     return (n_list)
 
 if __name__ == "__main__":
     a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
-    print("Pass1" if ListLessThanTen(a,3)==[1, 1, 2] else "Error1")
+    print("Pass1" if ListLessThanTen(a,0)==[] else "Error1")
     print("Pass2" if ListLessThanTen(a,14)==[1, 1, 2, 3, 5, 8, 13] else "Error2")
