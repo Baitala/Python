@@ -1,4 +1,4 @@
-from Ex6StringLists import *
+from Ex6StringLists import IsPalindromeStr
 
 UserText = input("Please enter some text to check for palindrome: ")
-print(IsPalindromeList(UserText))
+print(IsPalindromeStr(UserText))
