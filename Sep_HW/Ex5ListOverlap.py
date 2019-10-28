@@ -10,35 +10,30 @@
 # out at this point - we’ll get to it soon)
 
 def ListOverlap(inlist1,inlist2):
-    result_list = []
+    """The function takes two lists, define common elements and return a list 
+    of unique common elements.
+    """
+    common_list = []
     for i in inlist1:
         if i in inlist2:
-            result_list.append(i)
+            common_list.append(i)
         else:
             continue
+    result_list = UniqueList(common_list)
     return(result_list)
 
-
-
-
-if __name__ == "__main__":
-    pass
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    # inunique1 =
-    # inunique2 =
-
+def UniqueList(inlist):
+    """The function takes a list and return the list with only unique values.
+    """
+    UniqueList = []
+    for i in inlist:
+        if i not in UniqueList:
+            UniqueList.append(i)
+    return(UniqueList)
 
 
 
 
 if __name__ == "__main__":
     pass
+
