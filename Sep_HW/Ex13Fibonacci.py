@@ -9,10 +9,9 @@ The sequence looks like this: 1, 1, 2, 3, 5, 8, 13, …)
 def FibonnaciGenerator(quantity):
     flist = [1,1]
     if quantity >= 3:
-            i = 2 #kind of big bug, actual length is 2
+            i = 2
             while i < int(quantity):
                 l = len(flist)
-                #print(flist) #only for debugging
                 flist.append(flist[l-2]+flist[l-1])
                 i += 1
             return(flist)
