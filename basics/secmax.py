@@ -29,6 +29,8 @@ def test_second_max(secmax):
     test_second_max_TC3(secmax)
     test_second_max_TC4(secmax)
     test_second_max_TC5(secmax)
+    test_second_max_TC6(secmax)
+    test_second_max_TC7(secmax)
     
 def test_second_max_TC1(secmax):
     #ascending sequence
@@ -60,6 +62,33 @@ def test_second_max_TC5(secmax):
     A = [rnumber] * 100
     max2 = None
     print("TC5:", "Passed" if secmax(A) is max2 else "Failed")
+
+def test_second_max_TC6(secmax):
+    #cycling through many genearated arrays
+    TC_Passed = True
+    for num in range(100):
+        if secmax([num] * 10 + [num + 1] * 10) != num:
+            TC_Passed = False
+    print("TC6:", "Passed" if TC_Passed else "Failed")
+
+def test_second_max_TC7(secmax):
+    #cycling through many randomly genearated arrays
+    TC_Passed = True
+    for num in range(100):
+        #generating test array
+        A = [0] * randint(10, 100)
+        for i in range(len(A)):
+            A[i] = randint(1,1000)
+        max2_position = max_position = randint(0,len(A)-1)
+        #genearting second maximum position not matching max pos
+        while max2_position == max_position:
+            max2_position = randint(0,len(A)-1)    
+        A[max_position] = 1000
+        A[max2_position] = max2 = 999
+		#testing
+        if secmax(A) != max2:
+            TC_Passed = False
+    print("TC7:", "Passed" if TC_Passed else "Failed")
 
 if __name__ == "__main__":
     test_second_max(second_max)
