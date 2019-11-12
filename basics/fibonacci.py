@@ -82,7 +82,7 @@ def test_fibonacci_TC4(fibonacci_algorithm):
     print("TC4", "Passed" if TC_Passed else "Failed")
 
 def test_fibonacci_TC5(fibonacci_algorithm):
-    #checking that it is ascending function
+    #checking that it is ascending function on big numbers
     TC_Passed = True
     step = 50
     for n in range(301,10000,100):
@@ -107,6 +107,6 @@ def test_fibonacci_TC6(fibonacci_algorithm):
     print("TC6", "Passed" if TC_Passed else "Failed")
 
 if __name__ == '__main__':
-    #test_fibonacci(fibonacci_recursive)
+    test_fibonacci(fibonacci_recursive)
     test_fibonacci(fibonacci_cycle)
     test_fibonacci(fibonacci_cycle_list)
