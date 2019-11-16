@@ -22,6 +22,8 @@ def guessing_game(guess_number):
 # """
 
     secret_number = random.randint(1, 9)
+    if __name__ == "__main__":
+        secret_number = 5
 
     if guess_number == "exit":
         quit
@@ -31,6 +33,8 @@ def guessing_game(guess_number):
         return "Too high."
     elif guess_number < secret_number:
         return "Too low."
+    else:
+        return ValueError
 
 
 
@@ -41,7 +45,7 @@ def guessing_game(guess_number):
 # print("You have guessed " +  + " times!!!")
 
 if __name__ == "__main__":
-    secret_number = 5
+    
     # print ("Pass 1" if guessing_game("exit") else "Error1")
     print("Pass2" if guessing_game(4) == "Too low." else "Error2")
     print("Pass3" if guessing_game(6) == "Too high." else "Error3")
