@@ -14,27 +14,36 @@ import random
 
 
 def guessing_game(guess_number):
-# """The function should randomly generate a sected number in range from 1 to 9,
-# and return one of three results:
-# 'You guessed it' in case you guess the number,
-# 'Too high' in case your number is bigger then the generated,
-# 'Too low' if your number is smaller then the generated.
-# """
-
+    """The function should randomly generate a sected number in range from 1 to 9,
+    and return one of three results:
+    'You guessed it' in case you guess the number,
+    'Too high' in case your number is bigger then the generated,
+    'Too low' if your number is smaller then the generated.
+    """
+    
     secret_number = random.randint(1, 9)
-    if __name__ == "__main__":
+    if __name__ == "__main__": #for auto TCs only
         secret_number = 5
+    print(secret_number)
+    guessed_number = 0
+    print(guessed_number)
+    trigger = True
 
-    if guess_number == "exit":
-        quit
-    elif guess_number == secret_number:
-        return "You guessed it!"
-    elif guess_number > secret_number:
-        return "Too high."
-    elif guess_number < secret_number:
-        return "Too low."
-    else:
-        return ValueError
+
+    while trigger:
+        guess_number = int(input("Please, enter your secret number option: "))
+        if guess_number == secret_number:
+            print "You guessed it!"
+        elif guess_number > secret_number:
+            guessed_number += 1
+            print "Too high."
+            trigger False
+        elif guess_number < secret_number:
+            print "Too low."
+        else:
+            return ValueError
+    
+   
 
 
 

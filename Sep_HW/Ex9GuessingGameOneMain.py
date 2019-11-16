@@ -12,4 +12,4 @@ from Ex9GuessingGameOne import guessing_game
 
 user_number = int(input("Please, enter your secret number option: "))
 
-return (guessing_game(user_number))
+print(guessing_game(user_number))
