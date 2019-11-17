@@ -22,14 +22,24 @@ def FibonnaciGenerator(quantity):
     else:
         return("Incorrect input. Please fill number equal or bigger then 1.")
 
+# def FibonnaciGeneratorRec(quantity2):
+#     if quantity2 == 0:
+#         return [0]
+#     if quantity2 == 1:
+#         return [0, 1]
+#     return FibonnaciGeneratorRec(quantity2-1) + FibonnaciGeneratorRec(quantity2-2)
 
 
-if __name__ == "__main__":
-    print("Pass1" if FibonnaciGenerator(10)==[1, 1, 2, 3, 5, 8, 13, 21, 34, 55] else "Error1")
-    print("Pass2" if FibonnaciGenerator(1)==[1] else "Error2")
-    print("Pass3" if FibonnaciGenerator(2)==[1, 1] else "Error3")
-    print("Pass4" if FibonnaciGenerator(3)==[1, 1, 2] else "Error4")
-    print("Pass5" if FibonnaciGenerator(4)==[1, 1, 2, 3] else "Error5")
-    print("Pass6" if FibonnaciGenerator(0)=="Incorrect input. Please fill number equal or bigger then 1." else "Error6")
+
+def testing_fibonacci(FibonnaciGen):
+    print("Pass1" if FibonnaciGen(10)==[1, 1, 2, 3, 5, 8, 13, 21, 34, 55] else "Error1")
+    print("Pass2" if FibonnaciGen(1)==[1] else "Error2")
+    print("Pass3" if FibonnaciGen(2)==[1, 1] else "Error3")
+    print("Pass4" if FibonnaciGen(3)==[1, 1, 2] else "Error4")
+    print("Pass5" if FibonnaciGen(4)==[1, 1, 2, 3] else "Error5")
+    print("Pass6" if FibonnaciGen(0)=="Incorrect input. Please fill number equal or bigger then 1." else "Error6")
     
-    #print(FibonnaciGenerator(9999)) #kind of perfomance test
+    #print(FibonnaciGen(9999)) #kind of perfomance test
+if __name__ == "__main__":
+    testing_fibonacci(FibonnaciGenerator)
+    testing_fibonacci(FibonnaciGeneratorRec)
