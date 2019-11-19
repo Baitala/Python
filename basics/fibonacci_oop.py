@@ -11,6 +11,7 @@ class FibonacciNumber:
             self.__read_db()
         else:
             self.__fibonacci = [0, 1]
+        self.__initial_fibonaccis_number = len(self.__fibonacci)
 
     def __read_db(self):
         '''Reads Fibonaccis from DB file'''
@@ -28,7 +29,8 @@ class FibonacciNumber:
         '''calculate n-th Fibonacci number'''
         for i in range(2,n+1):
             self.__fibonacci += [self.__fibonacci[i-1] + self.__fibonacci[i-2]]
-        self.__write_db()
+        if self.__initial_fibonaccis_number < len(self.__fibonacci):
+            self.__write_db()
 
     def generate(self,nth):
         '''Return n-th Fibonacci number'''
@@ -37,9 +39,6 @@ class FibonacciNumber:
         if nth > len(self.__fibonacci) - 1:
             self.__calculate(nth)
         return self.__fibonacci[nth]
-    
-    def __del__(self):
-        print(len(self.__fibonacci),"Fibonacci numbers written to", self.__db_path)
 
 
 def test_fibonacci(fibonacci_algorithm):
