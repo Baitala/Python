@@ -21,13 +21,13 @@ class FibonacciNumber:
     
     def __write_db(self):
         '''Saving calculated numbers to file'''
-        db_file = open(self.__db_path,'w+')
+        db_file = open(self.__db_path,'w')
         db_file.writelines([str(number) + "\n" for number in self.__fibonacci])
         db_file.close()
 
     def __calculate(self,n):
         '''calculate n-th Fibonacci number'''
-        for i in range(2,n+1):
+        for i in range(len(self.__fibonacci),n+1):
             self.__fibonacci += [self.__fibonacci[i-1] + self.__fibonacci[i-2]]
         if self.__initial_fibonaccis_number < len(self.__fibonacci):
             self.__write_db()
