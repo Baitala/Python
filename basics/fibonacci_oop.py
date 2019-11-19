@@ -8,34 +8,34 @@ class FibonacciNumber:
         and predefined path where file with those numbers is stored'''
         self.__db_path = db_path
         if os.path.isfile(self.__db_path):
-            self.read_db()
+            self.__read_db()
         else:
             self.__fibonacci = [0, 1]
 
-    def read_db(self):
+    def __read_db(self):
         '''Reads Fibonaccis from DB file'''
         db_file = open(self.__db_path,'r')
         self.__fibonacci = [int(line) for line in db_file.readlines()]
         db_file.close()
     
-    def write_db(self):
+    def __write_db(self):
         '''Saving calculated numbers to file'''
         db_file = open(self.__db_path,'w+')
         db_file.writelines([str(number) + "\n" for number in self.__fibonacci])
         db_file.close()
 
-    def calculate(self,n):
+    def __calculate(self,n):
         '''calculate n-th Fibonacci number'''
         for i in range(2,n+1):
             self.__fibonacci += [self.__fibonacci[i-1] + self.__fibonacci[i-2]]
-        self.write_db()
+        self.__write_db()
 
     def generate(self,nth):
         '''Return n-th Fibonacci number'''
         if nth < 0:
             raise ValueError
         if nth > len(self.__fibonacci) - 1:
-            self.calculate(nth)
+            self.__calculate(nth)
         return self.__fibonacci[nth]
     
     def __del__(self):
