@@ -3,7 +3,7 @@
 2. Choise sort
 3. Bubble sort
 4. Count sort
-5. ...
+5. Merge sort
 '''
 def insert_sort(array):
     '''Insert sort'''
@@ -20,6 +20,71 @@ def bubble_sort(array):
 def count_sort(array):
     '''Count sort'''
     pass
+
+def merge(A:list, B:list):
+    '''stable merge sort of two sorted arrays A and B
+    from lecture #9
+    https://www.youtube.com/watch?v=qf82-r9hl2Y&list=PLRDzFCPr95fK7tr47883DFUbm4GeOjjc0&index=9'''
+
+    C = [0] * (len(A) + len(B))
+    i = k = n = 0
+    while i < len(A) and k < len(B):
+        if A[i] < B[k]:
+            C[n] = A[i]
+            i += 1
+            n += 1
+        else:
+            C[n] = B[k]
+            k += 1
+            n += 1
+    while i < len(A):
+        C[n] = A[i]
+        i += 1
+        n += 1
+    while k < len(B):
+        C[n] = B[k]
+        k += 1
+        n += 1
+    return C
+
+def merge_sort(A):
+    '''stable merge sort array A
+    from lecture #9
+    https://www.youtube.com/watch?v=qf82-r9hl2Y&list=PLRDzFCPr95fK7tr47883DFUbm4GeOjjc0&index=9'''
+    if len(A) <= 1:
+        return
+    middle = len(A) // 2
+    L = [A[i] for i in range(0, middle)]
+    R = [A[i] for i in range(middle, len(A))]
+    merge_sort(L)
+    merge_sort(R)
+    C = merge(L,R)
+    for i in range(len(A)):
+        A[i] = C[i]
+
+def hoar_sort(A):
+    '''Hoar (quick) sort of array A
+    from lecture #9
+    https://www.youtube.com/watch?v=qf82-r9hl2Y&list=PLRDzFCPr95fK7tr47883DFUbm4GeOjjc0&index=9'''
+    if len(A) <= 1:
+        return
+    L = []
+    M = []
+    R = []
+    barrier = A[0]
+    for x in A:
+        if x < barrier:
+            L.append(x)
+        elif x == barrier:
+            M.append(x)
+        else:
+            R.append(x)
+    hoar_sort(L)
+    hoar_sort(R)
+    k = 0
+    for x in L + M + R:
+        A[k] = x
+        k += 1
 
 def test_sort(sorting_algorithm):
     '''Testing any sort algorithm by feeding it data and
@@ -63,8 +128,8 @@ def test_sort_TC4(sorting_algorithm):
 
 def test_sort_TC5(sorting_algorithm):
     '''Data already sorted'''
-    num = range(101)
-    num_sorted = range(101)
+    num = list(range(101))
+    num_sorted = list(range(101))
     sorting_algorithm(num)
     print("TC5", "Passed" if num == num_sorted else "Failed")
 
@@ -74,5 +139,7 @@ if __name__ == "__main__":
     test_sort(choise_sort)
     test_sort(bubble_sort)
     test_sort(count_sort)
+    test_sort(merge_sort)
+    test_sort(hoar_sort)
 
 

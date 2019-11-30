@@ -24,19 +24,24 @@ def merge_sort(numbers):
                     arr[j], arr[j+1] = arr[j+1], arr[j]
 
     def merge_lists(numlist1, numlist2):
-        '''Merges two sorted lists'''
+        '''Merges two sorted lists
+        Check it for stability of algorithm 
+        https://www.wikidata.org/wiki/Q11450547'''
         sorted_list = []
         len1 = len(numlist1)
         len2 = len(numlist2)
-        print("numlist1=", numlist1)
-        print("numlist2=", numlist2)
-        for i in range(len1):
-            for j in range(len2):
-                print(i, j, '\t', numlist1[i], numlist2[j])
-                if numlist1[i] < numlist2[j]:
-                    sorted_list.append(numlist1[i])
-                else:
-                    sorted_list.append(numlist2[j])
+        i = 0
+        j = 0
+        while i < len1 and j < len2:
+            #print(i, j, '\t', numlist1[i], numlist2[j])
+            if numlist1[i] <= numlist2[j]:
+                sorted_list.append(numlist1[i])
+                i += 1
+            else:
+                sorted_list.append(numlist2[j])
+                j += 1
+        if i < len1:
+            sorted_list += numlist1[i:len1]
         return sorted_list
 
 
@@ -47,16 +52,16 @@ def merge_sort(numbers):
         )
     
     asyncio.run(parallel_sorting())
-    numbers = merge_lists(first_half, second_half)
-    print(numbers)
+    sorted_numbers = merge_lists(first_half, second_half)
+    numbers[0:N] = sorted_numbers
 
 
 def test_sort(sorting_algorithm):
     test_sort_TC1(sorting_algorithm)
-    #test_sort_TC2(sorting_algorithm)
-    #test_sort_TC3(sorting_algorithm)
-    #test_sort_TC4(sorting_algorithm)
-    #test_sort_TC5(sorting_algorithm)
+    test_sort_TC2(sorting_algorithm)
+    test_sort_TC3(sorting_algorithm)
+    test_sort_TC4(sorting_algorithm)
+    test_sort_TC5(sorting_algorithm)
 
 def test_sort_TC1(sorting_algorithm):
     '''Basic TC with [1,...5] array'''
@@ -88,8 +93,8 @@ def test_sort_TC4(sorting_algorithm):
 
 def test_sort_TC5(sorting_algorithm):
     '''Data already sorted'''
-    num = range(101)
-    num_sorted = range(101)
+    num = list(range(101))
+    num_sorted = list(range(101))
     sorting_algorithm(num)
     print("TC5", "Passed" if num == num_sorted else "Failed")
 
