@@ -42,6 +42,8 @@ def merge_sort(numbers):
                 j += 1
         if i < len1:
             sorted_list += numlist1[i:len1]
+        if j < len2:
+            sorted_list += numlist2[j:len2]
         return sorted_list
 
 
