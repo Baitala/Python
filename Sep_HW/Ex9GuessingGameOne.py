@@ -33,13 +33,13 @@ def guessing_game(guess_number):
     while trigger:
         guess_number = int(input("Please, enter your secret number option: "))
         if guess_number == secret_number:
-            print "You guessed it!"
+            print ("You guessed it!")
         elif guess_number > secret_number:
             guessed_number += 1
-            print "Too high."
-            trigger False
+            print ("Too high.")
+            trigger = False
         elif guess_number < secret_number:
-            print "Too low."
+            print ("Too low.")
         else:
             return ValueError
     
