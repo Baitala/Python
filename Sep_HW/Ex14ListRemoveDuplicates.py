@@ -18,7 +18,10 @@ def ListRemoveDuplicates(user_list):
 
 def ListRemoveDuplicatesSets(user_list):
     '''Takes a list and return a list without duplicates. Sets realization.'''
-    pass
+    user_list = set(user_list)
+    user_list = list(user_list)
+    return user_list
+
 
 
 
@@ -29,6 +32,9 @@ def test_RemoveDuplicates(remdupl_algorithm):
     print("Testing", remdupl_algorithm.__name__)
     test_remdupl_TC1(remdupl_algorithm)
     test_remdupl_TC2(remdupl_algorithm)
+    test_remdupl_TC3(remdupl_algorithm)
+    # test_remdupl_TC4(remdupl_algorithm)
+    # test_remdupl_TC5(remdupl_algorithm)
 
 
 
@@ -37,12 +43,22 @@ def test_remdupl_TC1(remdupl_algorithm):
     num = [1, 2, 3, 3, 3, 3, 4, 10, 3, 4, 1, 2, 0]
     num_unique = [1, 2, 3, 4, 10, 0]
     print("TC1", "Passed" if remdupl_algorithm(num) == num_unique else "Failed")
+    print(remdupl_algorithm(num))
 
 def test_remdupl_TC2(remdupl_algorithm):
     '''TC with empty list'''
     num = []
     num_unique = []
     print("TC2", "Passed" if remdupl_algorithm(num) == num_unique else "Failed")
+    print(remdupl_algorithm(num))
+
+def test_remdupl_TC3(remdupl_algorithm):
+    '''TC with different characters in the list'''
+    num = ["@", "Petro", 1, 2, 3, 3, 3, 3, 4, 10, 3, 4, 1, 2, "Petro", 0, "@", "#", "^", "+"]
+    num_unique = ['@', 'Petro', 1, 2, 3, 4, 10, 0, '#', '^', '+']
+    print("TC3", "Passed" if remdupl_algorithm(num) == num_unique else "Failed")
+    print(remdupl_algorithm(num))
+    
 
 
 if __name__ == "__main__":
