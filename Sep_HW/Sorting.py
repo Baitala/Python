@@ -45,9 +45,9 @@ def hoar_sort(A):
     R = []
     for x in A:
         if x < barrier:
-            L.append(x):
+            L.append(x)
         elif x == barrier:
-            M.append(x):
+            M.append(x)
         else:
             R.append(x)
     hoar_sort(L)
@@ -70,3 +70,26 @@ def check_sorted(A, ascending = True):
     return flag
 
 #binary search in array
+#requirements: array is alreaday sorted
+#left and right limits (left shows last smaller, right shows first bigger)
+def left_bound(A, key):
+    left = -1
+    right = len(A)
+    while right-left >1:
+        middle = (left+right)//2
+        if A[middle] < key:
+            left = middle
+        else:
+            right = middle
+    return left
+
+def right_bound(A, key):
+    left = -1
+    right = len(A)
+    while right-left >1:
+        middle = (left+right)//2
+        if A[middle] <= key:
+            left = middle
+        else:
+            right = middle
+    return right
