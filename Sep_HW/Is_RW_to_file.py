@@ -30,7 +30,7 @@ does_file_exist_with_try()
 def does_file_exist_with_os():
     '''Defines if super_file.txt exists and print "File exitsts" in case if it
     exists and "File doesn't exist" if it doesn't; OS realization.'''
-    if os.path.isfile('super_file.txt'):
+    if os.path.isfile('/home/pedro/programming/Python/Sep_HW/super_file.txt'):
         print ("File exists")
     else:
         print ("File doesn't exist")
