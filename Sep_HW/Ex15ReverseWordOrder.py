@@ -7,6 +7,8 @@
 # shown back to me.
 
 def reverse_string(user_string):
+    '''The function took a string and reverse it by words and returns a
+    string'''
     user_list = user_string.split(" ")
     length = len(user_list)
     reverse_list = []
@@ -18,8 +20,6 @@ def reverse_string(user_string):
     return rev_string
 
 
-a = "My name is Michele"
-print(reverse_string(a))
 
 if __name__ == "__main__":
     a = "My name is Michele"
