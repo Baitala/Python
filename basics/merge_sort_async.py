@@ -59,6 +59,7 @@ def merge_sort(numbers):
 
 
 def test_sort(sorting_algorithm):
+    print("Testing:", sorting_algorithm.__name__)
     test_sort_TC1(sorting_algorithm)
     test_sort_TC2(sorting_algorithm)
     test_sort_TC3(sorting_algorithm)

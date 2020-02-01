@@ -110,3 +110,6 @@ if __name__ == '__main__':
     test_class = FibonacciNumber()
     test_fibonacci(test_class.generate)
     del test_class
+
+    test2 = FibonacciNumber()
+    print(test2.generate(100))
