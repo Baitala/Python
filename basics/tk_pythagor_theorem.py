@@ -8,7 +8,7 @@ def handler1(event):
 
 main_window = tk.Tk()
 main_window.title("Теорема Пифагора")
-main_window.geometry("500x150")
+main_window.geometry("600x150")
 
 x_label = tk.Label(main_window, text="Катет x:", font="Sans 10")
 x_entry = tk.Entry(main_window, width=10, font="Sans 20")
@@ -22,7 +22,7 @@ y_entry.grid(column=1, row=2)
 
 answer_text_label = tk.Label(main_window, text="Гипотенуза:", font="Sans 10")
 answer = tk.StringVar()
-answer_label = tk.Label(main_window, width=10, textvariable = answer, font="Sans 20")
+answer_label = tk.Label(main_window, width=30, textvariable = answer, font="Sans 20")
 answer_text_label.grid(column=0, row=3)
 answer_label.grid(column=1, row=3)
 
