@@ -1,7 +1,7 @@
 
 def my_decorator(somefunc):
     def decorating_func(arg):
-        print("Top text")
+        print("Top text", arg, arg)
         somefunc(arg)
         print("Bottom text")
         somefunc(arg)
@@ -24,6 +24,6 @@ def just_printing(text):
 
 myfunc("sometext")
 
-print("\n ================================= \n")
+#print("\n ================================= \n")
 
-just_printing("Lorem ipsem dolor sit amet...")
+#just_printing("Lorem ipsem dolor sit amet...")
